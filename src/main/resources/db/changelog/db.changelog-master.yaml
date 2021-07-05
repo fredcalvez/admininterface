@@ -1,0 +1,10 @@
+# Copyright 2020 akounts LLC
+databaseChangeLog:
+  - preConditions:
+      onFail: HALT
+      onError: HALT
+
+  # Initial schema including
+  - include:
+      file: db/changes/init_structure.yaml
+

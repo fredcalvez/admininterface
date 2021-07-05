@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id:  create-table-structure
+      author: fred calvez
+      changes:
+        - sqlFile:
+            dbms: postgresql
+            stripComments: true
+            splitStatements: false
+            path: db/migration/init_table.sql
