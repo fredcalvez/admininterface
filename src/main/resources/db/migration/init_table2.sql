@@ -1,23 +1,16 @@
 CREATE TABLE users (
-	user_id serial PRIMARY KEY,
-	username VARCHAR ( 50 ) UNIQUE NOT NULL,
+	username VARCHAR ( 50 ) PRIMARY KEY NOT NULL,
 	password VARCHAR ( 255 ) NOT NULL,
-	enabled BOOLEAN NOT NULL DEFAULT FALSE,
-	account_expired boolean default false,
-    account_locked boolean default false,
-    credentials_expired boolean default false,
-	email VARCHAR ( 255 ) UNIQUE NOT NULL,
-	created_on TIMESTAMP NOT NULL,
-    last_login TIMESTAMP
+	enabled BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 CREATE TABLE authorities
 (
-    user_id  serial,
+    username VARCHAR ( 50 ),
     authority VARCHAR(50) NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users (user_id)
+    FOREIGN KEY (username) REFERENCES users (username)
 );
-CREATE UNIQUE INDEX authorities_idx_1 ON authorities(user_id, authority);
+CREATE UNIQUE INDEX authorities_idx_1 ON authorities(username, authority);
 
 CREATE TABLE customers
 (

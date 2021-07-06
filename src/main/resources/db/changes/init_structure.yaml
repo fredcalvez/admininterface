@@ -7,4 +7,4 @@ databaseChangeLog:
             dbms: postgresql
             stripComments: true
             splitStatements: false
-            path: db/migration/init_table.sql
+            path: db/migration/init_table2.sql
